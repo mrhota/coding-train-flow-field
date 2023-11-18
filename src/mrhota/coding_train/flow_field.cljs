@@ -34,9 +34,10 @@
 
 ;; TODO: turn cells-and-angles into a function
 (defn setup []
-  (q/stroke 0 10)
+  ;; here I can adjust the stroke's alpha value to blend particle paths over time
+  (q/stroke 0 5)
   (q/background 255)
-  (let [scale 10
+  (let [scale 20
         increment 0.01
         particle-count 1000
         cols (q/floor (/ (q/width) scale))
@@ -49,10 +50,10 @@
                                                           (vec2 (q/random -1 1) (q/random -1 1))
                                                           (vec2 0 0)))
         cells-and-angles (map (fn [[x y :as corner]]
-                                (let [theta (* 2 q/PI 8
+                                (let [theta (* 2 q/PI 4
                                                (incremental-noise [[increment x]
                                                                    [increment y]
-                                                                   [0.01 0]]))]
+                                                                   [0.003 0]]))]
                                   [corner theta]))
                               corners)]
     {:scale scale
@@ -67,7 +68,7 @@
                                      (let [theta (* 2 q/PI 4
                                                     (incremental-noise [[increment x]
                                                                         [increment y]
-                                                                        [0.02 (q/frame-count)]]))]
+                                                                        [0.003 (q/frame-count)]]))]
                                        [corner theta]))
                                    cells-and-angles)
         new-particles (map (fn [{:keys [pos] :as particle}]
@@ -102,7 +103,7 @@
 #_{:clj-kondo/ignore [:unresolved-symbol]}
 (q/defsketch flow-field
   :host "app"
-  :size [800 600]
+  :size [640 480]
   :setup setup
   :update update-state
   :draw draw
