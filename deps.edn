@@ -1,8 +1,8 @@
 {:paths ["src" "target" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.11.1"}
-        org.clojure/clojurescript {:mvn/version "1.11.60"}
-        com.bhauman/figwheel-main {:mvn/version "0.2.18"}
-        quil/quil {:mvn/version "4.3-SNAPSHOT"}
+ :deps {org.clojure/clojure {:mvn/version "1.12.3"}
+        org.clojure/clojurescript {:mvn/version "1.12.42"}
+        com.bhauman/figwheel-main {:mvn/version "0.2.20"}
+        quil/quil {:mvn/version "4.3.1563"}
         thi.ng/geom {:mvn/version "1.0.1"}}
  :aliases {:fig {:main-opts ["-m" "figwheel.main"]}
            :build {:main-opts ["-m" "cljs.main" "-O" "advanced" "-c" "mrhota.coding-train.flow-field"]}
