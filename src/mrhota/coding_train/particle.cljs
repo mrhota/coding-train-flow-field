@@ -57,7 +57,7 @@
 
 ;; to have particles, draw a q/point, but to have paths, use the particle's
 ;; prev pos and its pos to draw a line
-(defn draw [{:keys [pos prev]} label]
+(defn draw [{:keys [pos prev]}]
   ;; (q/text label (+ (v/x pos) 3) (- (v/y pos) 3))
   (q/stroke-weight 1)
   ;; (q/point (v/x pos) (v/y pos)))
